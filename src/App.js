@@ -1,19 +1,23 @@
 import React, { useState } from "react";
 import Sidebar from "./Sidebar";
-import "./App.css";
 
 function App() {
   const [activeItem, setActiveItem] = useState("Dashboard");
   return (
-    <div className="layout">
-      <Sidebar activeItem={activeItem} onItemClick={setActiveItem} />
+    <div className="Container-fluid">
+      <div className="row vh-100">
 
-      <div className="main-content">
-        <h1>{activeItem}</h1>
+        <div className="col-3 col-md-2 bg-dark text-white p-0">
+          <Sidebar activeItem={activeItem} setActiveIte={setActiveItem} />
+        </div>
 
-        <p>
-          This item {activeItem} section content.
-        </p>
+        <div className="col-9 col-md-10 p-4">
+          <h1>{activeItem}</h1>
+          <p>
+            {activeItem}
+          </p>
+        </div>
+
       </div>
     </div>
   );
